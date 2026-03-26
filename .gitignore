@@ -1,0 +1,5 @@
+creditcard.csv
+creditcardfraud.zip
+__pycache__/
+env/
+.ipynb_checkpoints/
