@@ -6,6 +6,7 @@ API_URL = "http://127.0.0.1:8007/predict"
 
 st.set_page_config(page_title="Fraud Detection System", layout="wide")
 st.title("Credit Card Fraud Detection Portal")
+st.info(f"Currently targeting Backend API at: {API_URL}")
 st.write("Real-time anomaly detection engine.")
 
 tab1, tab2 = st.tabs(["Manual Entry", "Batch CSV Upload"])
