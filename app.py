@@ -57,7 +57,6 @@ with tab2:
         st.write(f"Preview of the first 5 rows of your uploaded data ({len(df)} total transactions):")
         st.dataframe(df.head())
 
-        # The button now dynamically shows the total number of rows
         if st.button(f"Scan all {len(df)} transactions"):
             with st.spinner("Processing entire dataset... This may take a moment for large files."):
                 try:
@@ -65,15 +64,12 @@ with tab2:
                     transactions_list = df.to_dict(orient='records')
                     payload = {"transactions": transactions_list}
 
-                    # Send the entire dataset in a single request.
-                    # Increased timeout to handle very large datasets.
                     response = requests.post(BATCH_PREDICT_URL, json=payload, timeout=300)
                     response.raise_for_status()
 
                     results = response.json()
                     predictions = results['predictions']
 
-                    # Add results to the original DataFrame
                     df['Is_Fraud_Prediction'] = predictions
                     fraud_count = df['Is_Fraud_Prediction'].sum()
 
@@ -83,7 +79,6 @@ with tab2:
                         is_fraud = s.Is_Fraud_Prediction == 1
                         return ['background-color: #ffcccc; color: black' if is_fraud else '' for _ in s]
 
-                    # Display the full DataFrame with highlighted results
                     st.dataframe(df.style.apply(highlight_fraud, axis=1))
 
                 except requests.exceptions.Timeout:
