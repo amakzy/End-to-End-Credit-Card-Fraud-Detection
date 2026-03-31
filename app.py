@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-API_URL = "https://test-wgisin1x.b4a.run/predict"
+API_URL = "https://amakxy-credit-card-fraud-detection-api.hf.space/predict"
 
 st.set_page_config(page_title="Fraud Detection System", layout="wide")
 st.title("Credit Card Fraud Detection Portal")
