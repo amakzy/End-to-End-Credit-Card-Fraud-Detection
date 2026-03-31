@@ -8,7 +8,7 @@ BATCH_PREDICT_URL = "https://amakxy-credit-card-fraud-detection-api.hf.space/pre
 
 st.set_page_config(page_title="Fraud Detection System", layout="wide")
 st.title("Credit Card Fraud Detection Portal")
-st.info(f"Connected to Backend API: https://amakxy-credit-card-fraud-detection-api.hf.space")
+st.info(f"Connected to Backend API: {SINGLE_PREDICT_URL}")
 st.write("Real-time anomaly detection engine.")
 
 tab1, tab2 = st.tabs(["Manual Entry", "Batch CSV Upload"])
